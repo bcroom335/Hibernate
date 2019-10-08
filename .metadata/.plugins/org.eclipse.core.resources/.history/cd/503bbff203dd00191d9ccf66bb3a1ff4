@@ -1,0 +1,22 @@
+package util;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+public class SessionFactoryListener implements ServletContextListener {
+	
+	@Override
+	public void contextInitialized(ServletContextEvent event) {
+		// TODO Auto-generated method stub
+		ServletContextListener.super.contextInitialized(sce);
+	}
+	
+	@Override
+	public void contextDestroyed(ServletContextEvent event) {
+		// TODO Auto-generated method stub
+		ServletContextListener.super.contextDestroyed(sce);
+	}
+
+
+	
+}

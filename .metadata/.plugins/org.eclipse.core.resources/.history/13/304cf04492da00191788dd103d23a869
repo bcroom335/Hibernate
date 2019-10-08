@@ -1,0 +1,44 @@
+package Model;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+
+public class DepartmentDAO {
+
+	private Session session;
+
+	public DepartmentDAO(Session session) {
+		this.session=session;
+	}
+	public Session getSession() {
+		return session;
+	}
+	public Department insert(Department dept,Set<Emplyee> empset) {
+		dept.setEmployees(empset);
+		session.save(dept);
+	}
+	private List<Employee> selectAllEmployee() {
+		Query query = session.createQuery("from Employee");
+		List<Employee> emplist=query.list();
+		return emplist;
+	}
+	private List<Department> selectAllDepartment() {
+		Query query = session.createQuery("from Department");
+		List<Employee> deptlist=query.list();
+		return deptlist;
+	}
+	private void updateAction(int deptid, String deptname) {
+		Department dept=session.get(Department.class, deptid);
+		if(dept!=null)
+			dept.setDeptname(deptname);		
+	}
+
+	private void deleteAction(int deptid) {
+		Department dept=session.get(Department.class, deptid);
+		if(dept!=null)
+			session.delete(dept);
+		
+	}
+}

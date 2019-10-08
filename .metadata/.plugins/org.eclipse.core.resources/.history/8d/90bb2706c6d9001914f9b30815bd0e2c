@@ -1,0 +1,9 @@
+package Model;
+
+public class BuildDAO {
+
+	public BuildDAO() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,30 @@
+package Model;
+
+import org.hibernate.Session;
+
+public class BuildDAO {
+	private Session session;
+	
+	public BuildDAO(Session session) {
+		this.session=session;
+	}
+	public Session getSession() {
+		return session;
+	}
+	public BuildingBean insert(BuildingBean bean) {
+		BuildingBean build=(BuildingBean)getSession().get(BuildingBean.class, bean.getBuildingid());
+		if(build==null) {
+			this.getSession().save(bean);
+			return bean;
+		}
+		return null;
+	}
+	public BuildingBean select(int buildingid) {
+		return getSession().get(BuildingBean.class, buildingid);
+	}
+	public List<BuildingBean> select(){
+		getSession().createQuery("from BuildingBean");
+		return (List<BuildingBean>)query.list();
+	}
+	
+}

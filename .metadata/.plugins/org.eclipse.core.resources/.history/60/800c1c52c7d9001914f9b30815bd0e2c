@@ -1,0 +1,14 @@
+package Model;
+
+import org.hibernate.Session;
+
+public class BuildDAO {
+	private Session session;
+	
+	public BuildDAO(Session session) {
+		this.session=session;
+	}
+	public Session getSession() {
+		return session;
+	}
+}

@@ -1,0 +1,14 @@
+package Action;
+
+import org.hibernate.SessionFactory;
+
+import Utils.HibernateUtil;
+
+public class DemoHibernateDAOActionEX1 {
+
+	public static void main(String[] args) {
+		SessionFactory sessionFactory =HibernateUtil.getSessionFactory();
+
+	}
+
+}

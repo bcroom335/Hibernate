@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=HibernateProject/src&lt;Model{HouseBean.java[HouseBean" modifiers="1" timestamp="1568691040574"/>
+<typeInfo handle="=HibernateProject/src&lt;Model{BuildingBean.java[BuildingBean" modifiers="1" timestamp="1568710343570"/>
+<typeInfo handle="=HibernateProject/src&lt;Model{BookBean.java[BookBean" modifiers="1" timestamp="1568794647953"/>
+<typeInfo handle="=HibernateProject/src&lt;Model{Department.java[Department" modifiers="1" timestamp="1568857180271"/>
+<typeInfo handle="=HibernateWebJpaProject/D:\/DataSource\/apache-tomcat-9.0.22\/lib\/servlet-api.jar&lt;javax.servlet(ServletContext.class[ServletContext" modifiers="1537" timestamp="1562224850000"/>
+<typeInfo handle="=HibernateWebJpaProject/D:\/DataSource\/JAVACourse\/java_openjdk-1.8_winx64\/jre\/lib\/rt.jar&lt;com.sun.org.apache.xalan.internal.xsltc.dom(Filter.class[Filter" modifiers="1537" timestamp="1556026245000"/>
+<typeInfo handle="=HibernateWebJpaProject/D:\/DataSource\/Hibernate\/workspace\/HibernateWebJpaProject\/WebContent\/WEB-INF\/lib\/classmate-1.3.4.jar&lt;com.fasterxml.classmate(Filter.class[Filter" modifiers="1537" timestamp="1568966516874"/>
+<typeInfo handle="=HibernateWebJpaProject/D:\/DataSource\/apache-tomcat-9.0.22\/lib\/servlet-api.jar&lt;javax.servlet(ServletContextListener.class[ServletContextListener" modifiers="1537" timestamp="1562224850000"/>
+<typeInfo handle="=HibernateWebJpaProject/D:\/DataSource\/apache-tomcat-9.0.22\/lib\/servlet-api.jar&lt;javax.servlet(Filter.class[Filter" modifiers="1537" timestamp="1562224850000"/>
+</typeInfoHistroy>

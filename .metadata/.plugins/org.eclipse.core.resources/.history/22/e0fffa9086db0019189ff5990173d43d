@@ -1,0 +1,92 @@
+package Action;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+
+import Model.Book;
+import Model.BookDetail;
+import Utils.HibernateUtil;
+
+
+@WebServlet("/DemoHibernateJndiAnnotationActionServlet")
+public class DemoHibernateJndiAnnotationActionServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private PrintWriter out;
+
+	private SessionFactory factory;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		processAction(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		processAction(request, response);
+	}
+
+	private void processAction(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		out = response.getWriter();
+		out.write("hi !!<br/>");
+		
+		try {
+			factory = HibernateUtil.getSessionfactory();
+			//session = factory.openSession();
+			//session.beginTransaction();
+			
+			//processInsert();
+			//processDelete();
+			List<Book> list1 = processBookQuery();
+			out.write("Food:<br/>");
+			out.write("---------------------------------------------<br/>");
+			
+			for(Book book: list1) {
+				out.write("id:" + book.getId() + "<br/>");
+				out.write("name:" + book.getBookname() + "<br/>");
+				out.write("price:" + book.getPrice() + "<br/>");
+				out.write("---------------------------------------------<br/>");
+			}
+			
+			List<BookDetail> list2 = processBookDetailQuery();
+			out.write("Food Detail:<br/>");
+			out.write("---------------------------------------------<br/>");
+			
+			for(BookDetail bookDetail: list2) {
+				out.write("id:" + bookDetail.getId() + "<br/>");
+				out.write("publisher:" + bookDetail.getPublisher() + "<br/>");
+				out.write("---------------------------------------------<br/>");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {			
+			System.out.println("Done");
+		}
+		
+		out.write("Success !!");
+
+		out.close();
+		
+	}
+	
+	private List<Book> processBookQuery() {
+		Query query = factory.getCurrentSession().createQuery("from Book");
+		return (List<Book>) query.list();
+	}
+	
+	private List<BookDetail> processBookDetailQuery() {
+		Query query = factory.getCurrentSession().createQuery("from BookDetail");
+		return (List<BookDetail>) query.list();
+	}
+
+
+}

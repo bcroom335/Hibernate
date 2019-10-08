@@ -1,0 +1,10 @@
+package Action;
+
+public class DemoHibernateDept1toManyAction {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

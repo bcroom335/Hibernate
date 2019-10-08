@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2019/9/20 �W�� 11:09:34 by Hibernate Tools 5.4.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="CCDataBase" dynamic-insert="false" dynamic-update="false" mutable="true" name="Model.BookDetail" optimistic-lock="version" polymorphism="implicit" schema="dbo" select-before-update="false" table="BookDetail">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="foreign">
+                <param name="property">book</param>
+            </generator>
+        </id>
+        <one-to-one class="Model.Book" constrained="true" embed-xml="true" name="book"/>
+        <property generated="never" lazy="false" name="publisher" optimistic-lock="true" type="java.lang.string" unique="false">
+            <column name="publisher"/>
+        </property>
+        <property generated="never" lazy="false" name="publisheraddress" optimistic-lock="true" type="java.lang.string" unique="false">
+            <column name="publisheraddress"/>
+        </property>
+    </class>
+</hibernate-mapping>

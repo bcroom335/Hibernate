@@ -1,0 +1,67 @@
+package Action;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import Model.BuildingBean;
+import Utils.HibernateUtil;
+
+public class DemoHibernateBuildingAction2 {
+	private SessionFactory factory;
+	private Session session;
+
+	public DemoHibernateBuildingAction2() {
+		factory = HibernateUtil.getSessionFactory();
+		session = factory.openSession();
+	}
+	public void queryDb1() {
+		BuildingBean build1 = session.load(BuildingBean.class, 1006);
+		System.out.println("id:"+build1.getBuildingid());
+		System.out.println("name:"+build1.getBuildingname());
+		System.out.println("age:"+build1.getBuildingage());
+
+	}	
+	public void queryDb2() {
+		BuildingBean build1 = session.get(BuildingBean.class, 1005);
+		System.out.println("id:"+build1.getBuildingid());
+		System.out.println("name:"+build1.getBuildingname());
+		System.out.println("age:"+build1.getBuildingage());
+
+	}
+	public void insertDb() {
+		
+		BuildingBean building1=new BuildingBean();
+		building1.setBuildingid(1006);
+		building1.setBuildingname("Purple House");
+		building1.setBuildingage(2);
+		session.save(building1);
+	}
+	public void deleteDb() {
+		BuildingBean building1=new BuildingBean();
+		session.delete(building1);
+
+	}
+	
+	public void processAction() {
+		try {
+			session.beginTransaction();
+			insertDb();
+			queryDb1();
+//			queryDb2();
+			session.getTransaction().commit();			
+		}catch(Exception e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		}finally {
+			session.close();
+			HibernateUtil.closeSessionFactory();
+		}
+	}
+
+	public static void main(String[] args) {
+		DemoHibernateBuildingAction2 buildaction = new DemoHibernateBuildingAction2();
+		buildaction.processAction();
+	
+	}
+
+}

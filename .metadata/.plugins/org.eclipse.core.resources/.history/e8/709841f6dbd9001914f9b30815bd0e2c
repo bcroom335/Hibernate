@@ -1,0 +1,35 @@
+package Action;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import Model.BuildDAO;
+import Model.BuildingBean;
+import Utils.HibernateUtil;
+
+public class DemoHibernateDAOActionEX1 {
+
+	public static void main(String[] args) {
+		SessionFactory sessionFactory =HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.openSession();
+		try {
+		BuildDAO bDao = new BuildDAO(session);
+		session.beginTransaction();
+		BuildingBean bean = new BuildingBean();
+		bean.setBuildingid(1007);
+		bean.setBuildingname("Red House");
+		bean.setBuildingage(1);
+		
+		bDao.insert(bean);
+		bDao.select(1007);
+		session.getTransaction().commit();
+		}catch(Exception e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		}finally {
+			session.close();
+			HibernateUtil.closeSessionFactory();
+		}
+	}
+
+}

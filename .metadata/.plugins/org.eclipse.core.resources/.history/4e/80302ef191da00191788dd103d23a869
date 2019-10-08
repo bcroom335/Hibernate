@@ -1,0 +1,9 @@
+package Model;
+
+public class DepartmentDAO {
+
+	public DepartmentDAO() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
